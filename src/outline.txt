@@ -1,0 +1,64 @@
+Thesis outline:
+
+C1: introduction and outline
+	1.1 Superconducting qubits
+	1.2 Quantum feedback control
+	1.3 Superconducting parametric amplifiers/TWPA
+	1.4 Thesis overview
+	1.5 Summary of key results
+
+C2: quantum measurement and feedback
+	- quantum limits to measurement/simple examples (ponderomotive probe, heisenberg microscope - follow B&K)
+	- quantum non-demolition measurements
+	- continuous quantum measurements
+	- quantum efficiency
+	- qubit measurement and the CW rabi spectrum
+	- bayesian state inference
+	- quantum feedback protocols
+
+C3: superconducting qubits/cQED (YAWN)
+	- quantization of electrical circuits
+	- superconducting qubits
+	- circuit quantum electrodynamics
+	- dispersive measurement
+
+C4: quantum-limited amplification/JPAs
+	- quantum limits on amplification
+	- semiconducting vs. parametric amplifiers
+	- Josephson parametric amplifiers
+	- JPA performance
+	- limitations to JPAs
+
+C5: experimental setup/calibration
+	- experimental parameter regime
+	- measurement setup
+	- calibration experiments
+
+C6: rabi feedback control
+	- P2P ratio and quantum efficiency
+	- CW rabi spectra and needles
+	- cw rabi spectra and quantum zeno effect
+	- time domain characterization
+	- tomographic reconstruction of stabilized state
+	- feedback efficiency analysis and theory/numerics
+
+C7: TWPA motivation and theory
+	- the limitations of JPAs
+	- optical analogies
+	- back of the envelope TWPA calculations
+	- nonlinear optics basics (SPM, XPM)
+	- traveling wave amplifier theory - generic
+	- traveling wave amplifier theory for circuit case
+	- RPM dispersion feature
+
+C8: TWPA experiments
+	- early experiments
+	- sample fabrication at MIT/LL
+	- length scaling of trad devices
+	- experimental dispersion engineering
+	- classical amplifier performance
+	- circuit QED noise measurement
+	- noise measurement results, quantum limit analysis
+	- dynamic range and projective measurement
+
+C9: conclusions and future directions

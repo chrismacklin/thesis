@@ -1,0 +1,148 @@
+% This sample file is dedicated to the public domain.
+\documentclass[12pt]{myucthesis}
+
+%\nofiles
+% The above command prevents latex from writing its auxiliary
+% files. This is useful if you want to manually tweak them before you
+% generate your final PDF.
+
+
+% Page layout. The fancyhdr package may complain about the need for a
+% larger headheight, depending on how long chapter titles are; if left
+% unspecified in the geometry setup, it defaults to 12pt. The
+% "showframe" option causes the geometry package (version >= 5.0) to
+% show a frame around the margins on every page, which is great for
+% checking that you don't overflow anywhere.
+
+%\usepackage[letterpaper,includehead,margin=1in,headheight=15pt,showframe]{geometry}
+\usepackage[papersize={8.25in, 10.75in},includehead,margin=0.875in,headheight=30pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{}{\scshape\rightmark}}
+\rhead[\fancyplain{}{\scshape\leftmark}]{\fancyplain{\thepage}{\thepage}}
+\chead{}
+\cfoot{}
+\lfoot{}
+\rfoot{}
+
+
+% Bibliography stuff:
+
+\newcommand{\newblock}{\par} % need this for some natbib internal bug
+\bibliographystyle{naturemag}
+\bibstyle{naturemag}
+\def\bibpreamble{\addcontentsline{toc}{chapter}{Bibliography}} % get a good TOC entry
+
+
+% Other setup:
+
+\usepackage[T1]{fontenc} % see http://tinyurl.com/67zdxwf
+%\usepackage[colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue,pdfusetitle]{hyperref}
+\usepackage[colorlinks,urlcolor=black,citecolor=black,linkcolor=black,pdfusetitle]{hyperref}   %Use this instead of above to make links black.  
+\usepackage{pdflscape} % allows landscape-oriented figures with PDF page rotation
+\usepackage{aasmacros,amsmath,amssymb,graphicx}
+\usepackage{mydeluxetable} % deluxetable customized to play well with ucthesis
+
+%boldface vectors for the nonlinear optics section
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%useful QM stuff
+\def\bra#1{\langle#1|}
+\def\ket#1{|#1\rangle}
+\def\xpec#1{\langle#1\rangle}
+
+%easier equation references
+\def\eqref#1{(\ref{#1})}
+
+
+\begin{document}
+\ssp % single spacing
+\hypersetup{pageanchor=false}
+\include{setup}
+\maketitle
+\copyrightpage
+
+\begin{abstract}
+Feedback control in classical systems is an indispensable, ubiquitous tool.  The theoretical basis for achieving optimal classical control is well understood, and crucially relies on a very classical assumption: that measurements of the state of a system under control need not perturb that state.  In a quantum context this assumption is fundamentally invalid.  Although many aspects of the theory of quantum feedback control are relatively well developed, the technological basis for feedback control of a single quantum system has only very recently matured.  We demonstrate the experimental realization of a quantum feedback control protocol, perpetually stabilizing the coherent Rabi oscillations of a superconducting qubit.  This is the first utilization of quantum feedback control for stabilizing a dynamical process, and the first application of quantum feedback in a solid-state system of any kind.  This demonstration comprises the first half of this thesis.  The feedback protocol is predicated on the ability to make high-fidelity quantum measurements, which are enabled by quantum-limited Josephson parametric amplifiers (JPAs).  The design and realization of the novel Josephson traveling-wave parametric amplifier (JTWPA) comprises the second half of this thesis.  The JTWPA achieves order-of-magnitude improvements over state of the art JPAs in bandwidth and signal power handling while providing quantum-limited noise performance, potentially enabling the simultaneous readout of dozens of superconducting qubits and the generation of broadband multi-mode squeezing in the microwave domain.
+\end{abstract}
+
+\hypersetup{pageanchor=true}
+\begin{frontmatter}
+
+\begin{dedication}
+\null\vfil
+{\large
+\begin{center}
+DEDICATED TO ALL THE CATS!
+\end{center}}
+\null\vfil
+\end{dedication}
+
+\tableofcontents
+\listoffigures % optional
+%\listoftables % optional
+
+% If using code.sty, can also add:
+%% \listofcodes
+%% \addcontentsline{toc}{chapter}{List of Code Examples}
+
+\begin{acknowledgements}
+
+I acknowledge the support and contributions of an uncountable number of people.  What follows is a profoundly incomplete list, ordered roughly chronologically.
+\paragraph{}
+\textbf{Diane, Allen, and Kate}, my biological family: I couldn't have done it (everything) without you.  Dad, I wish you had been able to live to see this day, and I hope you knew what a profound influence your scientific career had on the course of my life.
+\paragraph{}
+\textbf{Dr. Richard Piccioni}, my high school physics teacher: every day of your class I felt my understanding of the world deepen, and your enthusiasm, passion, and patience have inspired me to this day.  I have absolutely no idea what I would be doing with my life now if you hadn't guided me towards studying physics.
+\paragraph{}
+\textbf{Prof. Ritchie Patterson}, my first undergraduate research advisor at Cornell: your support and guidance were essential in my development as a self-confident researcher, and I am also indebted to you for the time I spent working as part of the CMS collaboration---a key experience which convinced me that I didn't actually want to study particle physics.
+\paragraph{}
+\textbf{Prof. Keith Schwab}, my final undergraduate research advisor at Cornell: your influence and support were invaluable in shaping my trajectory and my thoughts on physics itself.  My confidence as a young researcher was far greater after the time I spent in your lab.  I cannot thank you enough for introducing me to quantum measurement science.
+\paragraph{}
+\textbf{Prof. Irfan Siddiqi}, my graduate research advisor: you've said many times that the lab doesn't have your name on the door, and this atmosphere of empowerment and shared responsibility has created a superb environment for growth and learning.  The transparency with which you manage the lab is highly beneficial to the students and postdocs, providing us with insight into the hardest part of science: the byzantine, political, messy process of acquiring and maintaining funding.
+\paragraph{}
+\textbf{Dr. Ofer Naaman}, my first postdoc mentor at QNL: your tough love got me off to a good start in the lab, and my long-run scientific productivity was enhanced by learning from your working style.  It has been my great pleasure to shepherd the JTWPA from your original idea to a practical device.
+\paragraph{}
+\textbf{Dr. Daniel Slichter}: I learned a great deal about conducting science from your working style, especially the tricky process of sussing out just what's happening with a setup which is producing nonsensical results.  Your uncanny ability to summon forth a small laundry list of things to check demonstrated a deep understanding of the technical details of an experiment that still inspires me.  I am also indebted to you for your early experimental work on the JTWPA and your overall guidance.
+\paragraph{}
+\textbf{Dr. R. Vijay}, my primary postdoc mentor at QNL: I admire your enthusiasm for physics and your willingness to dive all the way deep into an experiment.  Your combination style of getting things working fast with a longer period of perfectionism lead to truly beautiful science.  Working on the quantum feedback experiment with you was an incredible learning experience.  I also thank you for your feedback on this manuscript.
+\paragraph{}
+\textbf{Dr. Kater Murch}, the ultimate inspiration to stop thinking and start doing right now: I can only aspire to move as fast as you do.
+\paragraph{}
+\textbf{Prof. Alexander Korotkov}, the theoretical backbone of the quantum feedback project: it was an honor to experimentally realize such a beautiful and simple piece of physics theory, even if quantum mechanics is trivial.  A very good collaboration indeed.
+\paragraph{}
+\textbf{Kevin O'Brien}: your theoretical work on the JTWPA made this device a practical reality.  I cannot thank you enough for your above-and-beyond efforts in understanding this fascinating device and for being a fabulous collaborator.
+\paragraph{}
+\textbf{Prof. Will Oliver, Dr. David Hover, and the rest of the MIT-LL team}: thank you for such a productive collaboration to fabricate and realize the JTWPA.  Your expertise brought this device to life.
+\paragraph{}
+\textbf{Mollie Schwartz}: my excitement at finally having a graduate student minion quickly gave way to awe as you rapidly learned and took over the entire entanglement-by-measurement experiment.  Your mastery of qubit measurements and your well-calibrated measurement setup were essential to acquiring the exquisite data on the noise performance of the JTWPA.  I also thank you for your feedback on this manuscript.
+\paragraph{}
+\textbf{Dr. Allison Dove, Dr. Emmanuel Flurin, Andrew Eddins, Dr. Shay Hacohen-Gourgy, and Vinay Ramasesh}: thank you for your feedback on this manuscript.
+\paragraph{}
+\textbf{Prof. John Clarke and Prof. Birgitta Whaley}, my dissertation committee: thank you for your comments, guidance, and of course, your signatures.
+\paragraph{}
+\textbf{Every member of QNL, past and present}: you made this lab what it is today, and I cannot thank every one of you enough.  The experiments in this dissertation would not have been possible without your technical expertise and communal support.
+\paragraph{}
+\textbf{The staff at House of Curries}: QNL would have starved long ago without you.
+\paragraph{}
+\textbf{Little Cat and Future Cat}, my furriest friends and informal QNL mascots: your images grace every computer in the lab.
+\paragraph{}
+\textbf{Elizabeth}, my love and companion: I can't imagine a life without you.
+
+\end{acknowledgements}
+\end{frontmatter}
+
+\include{intro/intro}
+\include{qmeas_chapter/qmeas_chapter}
+\include{scqb_chapter/scqb_chapter}
+\include{paramps_chapter/paramps_chapter}
+\include{qfb_exp_chapter/qfb_exp_chapter}
+\include{qfb_results_chapter/qfb_results_chapter}
+\include{twpa_theory/twpa_theory_chapter}
+\include{twpa_exp/twpa_exp_chapter}
+\include{conclusion/conclusion}
+
+\bibliography{thesis}{}
+
+\appendix
+\include{appendix/twpa_paramp_appendix}
+\end{document}

@@ -1,0 +1,93 @@
+\chapter{Derivation of parametric amplification in the JTWPA}
+\label{a:twpa_paramp}
+
+In this appendix, I reproduce the full derivation of the coupled wave equations for the JTWPA.  This work appears as Appendix 1 in reference \cite{OBrien2014}.  The nonlinear wave equation describing the JTWPA was derived in section \ref{s:twpa_wave_eq} as
+\begin{equation}
+{C_0}\frac{{{\partial ^2}\phi }}{{\partial {t^2}}} - \frac{{{a^2}}}{L}\frac{{{\partial ^2}\phi }}{{\partial {x^2}}} - {C_j}{a^2}\frac{{{\partial ^4}\phi }}{{\partial {x^2}\partial {t^2}}} = \frac{{{a^4}}}{{2I_0^2{L^3}}}\frac{{{\partial ^2}\phi }}{{\partial {x^2}}}{\left( {\frac{{\partial \phi }}{{\partial x}}} \right)^2} \label{eq:a1}
+\end{equation}
+We take the ansatz that the solutions will be forward propagating waves of the form:
+\begin{equation}
+\phi  = \frac{1}{2} [ A_p(x)e^{i(k_p x + \omega _p t)} + A_s(x)e^{i(k_s x + \omega _s t)} +A_i(x)e^{i(k_ix + \omega _it)} + c.c]
+\end{equation}
+where $A_m$ is the slowly varying amplitude, $k_m$ is the wave vector, and $\omega_m$ is the angular frequency. We substitute the above expression into the nonlinear wave equation then make the following approximations: 
+\begin{enumerate}
+\item	Neglect the second derivatives of the slowly varying amplitudes using the slowly varying envelope approximation: $\left| {\frac{{{\partial ^2}{A_m}}}{{\partial {x^2}}}} \right| \ll \left| {{k_m}\frac{{\partial {A_m}}}{{\partial x}}} \right|$.
+\item	Neglect the first derivatives of the slowly varying amplitudes on the right side of the nonlinear wave equation (ie, in the nonlinear polarizability): $\left| {\frac{{\partial {A_m}}}{{\partial x}}} \right| \ll \left| {{k_m}{A_m}} \right|$.  
+\end{enumerate}
+Considering only the left side of Eq.~\ref{eq:a1} and separating out the terms that oscillate at the pump, signal, and idler frequencies we get the following equation:
+\begin{align}
+\Biggl[ \frac{a^2 e^{i(t\omega_m + k_m x)} k_m^2}{2L} - 
+\frac{1}{2} C_0 e^{i(t\omega _m + k_m x)}\omega _m^2 - \frac{1}{2} a^2 C_j e^{i(t\omega _m + k_m x)}k_m^2 \omega _m^2 \Biggr] A_m(x)  \notag \\
++ \Biggl[ i a^2 C_j e^{i(t\omega _m + k_m x)}k_m \omega _m^2 -
+\frac{i a^2 e^{i(t\omega _m + k_m x)} k_m}{L}  \Biggr] \frac{\partial A_m(x)}{\partial x} \label{eq:a2}
+\end{align}
+where $m=p,s,i$. Defining the wave vector as ${k_m} = \frac{{{\omega _m}\sqrt {{C_0}L} }}{{a\sqrt {1 - {C_j}L{\omega _m}} }}$, Eq.~\ref{eq:a2} simplifies to:
+\begin{equation}
+ - \frac{{i{C_0}{\omega _m}^2}}{{{k_m}}}{{\rm{e}}^{{\rm{i}}(t{\omega _m} + {k_m}x)}} \frac{{\partial {A_m}(x)}}{{\partial x}} \label{eq:a3}
+\end{equation}
+Now we consider the nonlinear component (the right side of Eq.~\ref{eq:a1}). The propagation equation for the pump is:
+\begin{equation}
+\frac{{\partial {A_p}}}{{\partial x}} - \frac{{i{a^4}{k_p}^5}}{{16{C_0}{I_0}^2{L^3}\omega _p^2}}{A_p}^2A_p^* = 0 \label{eq:a4}
+\end{equation}
+where we have neglected the terms proportional to the amplitudes of the signal and idler as they are much smaller than the pump field. The propagation equation for the signal and idler, neglecting terms which are quadratic in the signal and idler amplitudes:
+\begin{align}
+\frac{{\partial {A_s}}}{{\partial x}} - i\frac{{{a^4}{k_p}^2{k_s}^3}}{{8{C_0}{I_0}^2{L^3}{\omega _s}^2}}{A_p}A_p^*{A_s} -  i\frac{{{a^4}{k_p}^2(2{k_p} - {k_i}){k_s}{k_i}}}{{16{C_0}{I_0}^2{L^3}{\omega _s}^2}}{A_p}^2A_i^*{{\rm{e}}^{{\rm{i}}\Delta {k_L}x}} = 0 \label{eq:a5}\\
+\notag \\
+\frac{{\partial {A_i}}}{{\partial x}}  - i\frac{{{a^4}{k_p}^2{k_i}^3}}{{8{C_0}{I_0}^2{L^3}{\omega _i}^2}}{A_p}A_p^*{A_i} -  i\frac{{{a^4}k_p^2(2{k_p} - {k_s}){k_s}{k_i}}}{{16{C_0}{I_0}^2{L^3}{\omega _i}^2}}{A_p}^2A_s^*{{\rm{e}}^{{\rm{i}}\Delta {k_L}x}} = 0 \label{eq:a6}
+\end{align}
+Now we solve for the pump propagation, assuming no loss, and obtain:
+\begin{equation}
+A_p(x) = A_{p,0}e^{i\frac{a^4 k_p^5 A_p A_p^*}{16 C_0 I_0^2 L^3\omega _p^2}x} \label{eq:a7}
+\end{equation}
+We substitute the solution for the pump field (Eq.~\ref{eq:a7}) into Eqs.~\ref{eq:a5} and \ref{eq:a6}:
+\begin{align}
+A_p(x) = A_{p,0}e^{i\alpha _p x} \label{eq:a8}\\
+\frac{\partial A_s}{\partial x} - i\alpha _s A_s - i\kappa _s A_i^* e^{i(\Delta k_L + 2\alpha _p)x} = 0 \label{eq:a9}\\
+\frac{\partial A_i}{\partial x} - i\alpha _i A_i - i\kappa _i A_s^* e^{i(\Delta k_L + 2\alpha _p)x} = 0 \label{eq:a10}
+\end{align}
+where the couplings are defined as:
+\begin{align}
+\alpha_s = \frac{2\kappa k_s^3 a^2}{LC_0\omega _s^2} && \kappa _s = \frac{\kappa (2 k_p - k_i)k_s k_i a^2}{LC_0\omega _s^2} \label{eq:a11}\\
+\alpha_i = \frac{2\kappa k_i^3a^2}{LC_0\omega _i^2} && \kappa _i = \frac{\kappa (2k_p - k_s)k_s k_i a^2}{LC_0\omega _i^2} \label{eq:a12}\\
+\alpha_p = \frac{\kappa k_p^3 a^2}{LC_0\omega _p^2} && \kappa  = \frac{a^2 k_p^2 A_{p,0}A_{p,0}^*}{16I_0^2 L^2} \label{eq:a13}
+\end{align}
+% \textcolor{red}{Note: it would be more rigorous to derive the nonlinear wave equation with the resonance rather than making this substitution. Probably could be could be derived from the Lagrangian of the unit cell without too much difficulty} 
+To generalize these equations for arbitrary circuits, we make the substitution ${C_0} = 1/(i\omega Z_2)$ and express the pump amplitude in terms of the characteristic impedance and pump current: $A_{p,0}=I_p Z_{char}/\omega_p$. The couplings are now:
+\begin{align}
+\alpha_s = \frac{2\kappa k_s^3 a^2 i Z_2(\omega_s)} {L\omega _s} && \kappa _s = \frac{\kappa (2 k_p - k_i)k_s k_i i Z_2(\omega_s) a^2}{L\omega _s} \label{eq:a14}\\
+\alpha_i = \frac{2\kappa k_i^3a^2 i Z_2(\omega_i)} {L\omega _i} && \kappa _i = \frac{\kappa (2k_p - k_s)k_s k_i i Z_2(\omega_i) a^2}{L\omega _i} \label{eq:a15}\\
+\alpha_p = \frac{\kappa k_p^3 a^2 i Z_2(\omega_p)} {L\omega _p} && \kappa  = \frac{a^2 k_p^2 |Z_{char}|^2}{16L^2 \omega_p^2} \left(\frac{I_p}{I_0}\right)^2 \label{eq:a16}
+\end{align}
+
+We solve the coupled amplitude equations (\ref{eq:a9},\ref{eq:a10}) by making the substitutions $A_s=a_s e^{i\alpha_s x}$ and $A_i=a_i e^{i\alpha_i x}$ to obtain:
+\begin{align}
+\frac{{\partial {a_s}}}{{\partial x}} - i{\kappa _s}a_i^*{e^{i(\Delta {k_L} + 2{\alpha _p} - {\alpha _s} - {\alpha _i})x}} &= 0 \label{eq:a17} \\
+\frac{{\partial {a_i}}}{{\partial x}} - i{\kappa _i}a_s^*{e^{i(\Delta {k_L} + 2{\alpha _p} - {\alpha _s} - {\alpha _i})x}} &= 0 \label{eq:a18}
+\end{align}
+These equations are analogous to the coupled amplitude equations for an optical parametric amplifier, which have the following solution\cite{armstrong_interactions_1962}:
+\begin{align}
+a_s(x) = \Biggl[ a_s(0)\left(\cosh gx - \frac{i\Delta k}{2g}\sinh gx \right) + \frac{i\kappa_s}{g}a_i^*(0)\sinh gx \Biggr] e^{i\Delta kx/2} \label{eq:a19}\\
+a_i(x) = \Biggl[ a_i(0)\left(\cosh gx - \frac{i\Delta k}{2g}\sinh gx \right) +  \frac{i\kappa_i}{g}a_s^*(0)\sinh gx \Biggr] e^{i\Delta kx/2} \label{eq:a20}
+\end{align}
+where $\Delta k$ and $g$ are defined as:
+\begin{align}
+\Delta k &= \Delta {k_L} + 2{\alpha _p} - {\alpha _s} - {\alpha _i} \notag \\
+&= 2k_p-k_s-k_i + 2{\alpha _p} - {\alpha _s} - {\alpha _i}  \label{eq:a21}
+\end{align}
+\begin{equation}
+g=\sqrt{\kappa_s \kappa^*_i -(\Delta k/2)^2}  \label{eq:a22}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
